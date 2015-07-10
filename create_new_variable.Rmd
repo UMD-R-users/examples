@@ -21,7 +21,14 @@ head(data)
 6 61.16202 11.310838 Upper Second Class
 ```
 
-The goal is to create a coded variable with values 1, 2, 3, or 4 for each factor level in `data$grade`.
+The goal is to create a coded variable with values 1, 2, 3, or 4 for each factor level in `data$grade`. The desired mapping is:
+
+string | code
+-------|-----
+First Class | 1
+Upper Second Class | 2
+Lower Second Class | 3
+Third Class | 4
 
 ### Using `ifelse()`
 
