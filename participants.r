@@ -40,11 +40,6 @@ data <- data.frame(participant = c(20222, 20222, 20329, 20345, 20345), session =
 
 sink("report.txt", append = TRUE)
 
-writeLines("# ===============================")
-writeLines(paste("#", curDate))
-writeLines("# ===============================")
-cat("\n")
-
 for (participant in (unique(data$participant))) {
   
   test(participant)
