@@ -38,7 +38,7 @@ data <- data.frame(participant = c(20222, 20222, 20329, 20345, 20345), session =
 
 # loop over each unique participant and save the results to a text file
 
-sink("report.txt", append = TRUE)
+sink("report.txt")
 
 for (participant in (unique(data$participant))) {
   
