@@ -104,14 +104,14 @@ $H10..NTC_B..FAM
 
 Process the original data, except the first column, and replace all values less than the 1st quartile and greater than the 3rd quartile with NA.
 
-The `cropPoints` list is shorter than the original data frame by 1 element (the code for `cropPoints` excludes the 1st column from the original data frame), so each iteration through the original data requires subsetting into different indices simultaneously. Hence the `length(cropped[-1])` and `cropped[i + 1]` trickery for modifying the correct column. 
+The `cropPoints` list is shorter than the original data frame by 1 element (the code for `cropPoints` excludes the 1st column from the original data frame), so each iteration through the original data requires subsetting into different indices simultaneously. For example, `cropped[2]` and `cropPoints[1]`. Hence the `length(cropped[-1])` and `cropped[i + 1]` trickery for modifying the correct column. 
 
 ```r
 cropped <- data
 
 for (i in 1:length(cropped[-1])) {
-  try(cropped[i + 1][cropped[i + 1] < cropPoints[[i]][1]] <- NA, silent = FALSE)
-  try(cropped[i + 1][cropped[i + 1] > cropPoints[[i]][2]] <- NA, silent = FALSE)
+  cropped[i + 1][cropped[i + 1] < cropPoints[[i]][1]] <- NA
+  cropped[i + 1][cropped[i + 1] > cropPoints[[i]][2]] <- NA
 }
 
 # view a sample
