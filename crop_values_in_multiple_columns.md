@@ -1,4 +1,4 @@
-# Crop each column in a data frame based on values derived from each column
+# Crop each column in a data frame based on values derived from the column itself
 
 ### Read the data
 
