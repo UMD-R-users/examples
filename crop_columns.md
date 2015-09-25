@@ -1,6 +1,6 @@
 # Crop each column in a data frame based on values derived from each column
 
-#Read the data
+### Read the data
 
 ```r
 data <- read.csv('~/Documents/dev/r/r_group/examples/64_Rn.csv', header = TRUE)
@@ -60,7 +60,7 @@ data[c(1:3, 14, 26)]
 31     45                 1.79987            1.86876            1.49716         0.76245
 ```
 
-#Derive values for lower and upper crop points
+### Derive values for lower and upper crop points
 
 Use `lapply()` to generate quartiles for each column, except the first column (`Cycles`). You could use any calculation -- quartiles are used for demonstration. The result will be structured as a list. Process the quartiles list and return another list with only the 1st and 3rd quartiles.
 
@@ -69,7 +69,8 @@ cropPoints <- lapply(data[-1], function(x) {
   quantile(x) # replace with your preferred calculation
 })
 
-# We only need the 1st and 3rd quartiles. We can access these by the name attributes. (This is not really necessary, but instructive.)
+# We only need the 1st and 3rd quartiles. We can access these by the name attributes.
+# (This is not really necessary, but instructive.)
 cropPoints <- lapply(cropPoints, function(x) {
   x[c("25%", "75%")]
 })
@@ -99,7 +100,7 @@ $H10..NTC_B..FAM
 0.759515 0.765165
 ```
 
-#Crop each column
+### Crop each column
 
 Process the original data, except the first column, and replace all values less than the 1st quartile and greater than the 3rd quartile with NA.
 
